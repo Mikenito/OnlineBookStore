@@ -5,10 +5,6 @@ import com.online.book.store.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
 @Service
 public class BookService {
 
@@ -19,12 +15,8 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    public List<Book> findBooksByISBN(Set<String> ISBN){
-        List<Book> books = new ArrayList<>();
-        for (String ISBNs : ISBN) {
-            books.add(this.bookRepository.findBookByISBN(ISBNs).get());
-        }
-        return books;
+    public Book findBooksByISBN(String ISBN) {
+        return this.bookRepository.findBookByISBN(ISBN);
     }
 
 }
