@@ -31,4 +31,9 @@ public class OrderController {
         return this.orderService.getAllBookOrders();
     }
 
+//    @GetMapping
+    public List<Order> getBookOrdersById(@RequestParam(name = "id") Integer bookId) {
+        return this.orderService.getOrderItemsById(bookId);
+    }
+
 }

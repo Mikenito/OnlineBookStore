@@ -6,6 +6,7 @@ import com.online.book.store.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -33,6 +34,15 @@ public class OrderService {
 
     public List<Order> getAllBookOrders() {
         return (List<Order>) this.orderRepository.findAll();
+    }
+
+    public List<Order> getOrderItemsById(Integer id) {
+        List<Order> orderItems = new ArrayList<>();
+        Order order = this.orderRepository.findById(id).get();
+        for (int i=0; i<order.getQuantity();i++) {
+            orderItems.add(order);
+        }
+        return orderItems;
     }
 
 }
