@@ -1,5 +1,6 @@
 package com.online.book.store.services;
 
+import com.online.book.store.domain.Order;
 import com.online.book.store.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,10 @@ public class OrderService {
     @Autowired
     public OrderService(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
+    }
+
+    public Order saveOrder(Order order){
+        return orderRepository.save(order);
     }
 
 }
