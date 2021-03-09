@@ -6,8 +6,6 @@ import com.online.book.store.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -23,21 +21,18 @@ public class OrderService {
         this.bookService = bookService;
     }
 
-    public Order saveBookOrders(HashMap<String, Integer> orders) {
-        List<Book> booksFound = this.bookService.findBooksByISBN(orders.keySet());
-        List<Book> orderedBooks = new ArrayList<>();
-        System.out.println("books found: " + booksFound);
-        for (Book book : booksFound) {
-            int quantities = orders.get(book.getISBN());
-            for (int i = 0; i < quantities; i++) {
-                orderedBooks.add(book);
-            }
-        }
-        System.out.println("ordered books: " + orderedBooks);
+    public Order saveBookOrder(String ISBN, Integer quantity) {
+        Book bookFound = this.bookService.findBooksByISBN(ISBN);
         Order order = new Order();
-        order.setBooks(orderedBooks);
-        order.setId(1);
-        return this.orderRepository.save(order);
+        order.setBook(bookFound);
+        order.setQuantity(quantity);
+        System.out.println(order);
+        Order savedOrder = this.orderRepository.save(order);
+        return savedOrder;
+    }
+
+    public List<Order> getAllBookOrders() {
+        return (List<Order>) this.orderRepository.findAll();
     }
 
 }
