@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
@@ -17,10 +16,11 @@ public class Order {
     private int id;
 
     @Column
-    private int quantity;
+    private Integer quantity;
 
-    @Column
-    @ManyToMany ( cascade = CascadeType.ALL )
-    private List<Book> books;
+    @OneToOne
+    @JoinColumn(name = "book_id")
+    private Book book;
+
 
 }

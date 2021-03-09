@@ -8,17 +8,17 @@ import javax.persistence.*;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "books")
+@Table ( name = "books" )
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue ( strategy = GenerationType.IDENTITY )
     private int id;
 
-    @Column (nullable = false, name = "isbn")
+    @Column ( nullable = false, name = "isbn" )
     private String ISBN;
 
-    @Column(nullable = false)
+    @Column ( nullable = false )
     private String title;
 
     @Column
