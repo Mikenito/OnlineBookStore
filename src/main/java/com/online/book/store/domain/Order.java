@@ -20,10 +20,7 @@ public class Order {
     private int quantity;
 
     @Column
-    private String ISBN;
-
-    @Column
-    @OneToMany ( cascade = CascadeType.ALL )
+    @ManyToMany ( cascade = CascadeType.ALL )
     private List<Book> books;
 
 }
