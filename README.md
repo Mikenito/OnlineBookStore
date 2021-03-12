@@ -6,12 +6,13 @@ A simple online book store
 * Java 
 * PostgreSQL
 
-## Application Link
+## Application RestAPIs
 ###### Main Link
 * [ click here ]()
-###### Create an order here
+###### Get all order using this api
+* Get: [base/api/orders]()
+###### Create an order using his RestAPI
 * Post: [base/api/orders]()
+    *   Use JSON format for the request body
+    *   e.g. `{ "ISBN": "9783161484107", "quantity": "2" }`
 -----------------
-mo
------------
-`issa block`
