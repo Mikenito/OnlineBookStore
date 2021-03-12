@@ -34,15 +34,7 @@ public class OrderService {
 
     public List<Order> getAllBookOrders() {
         return (List<Order>) this.orderRepository.findAll();
-    }
-
-    public List<Order> getOrderItemsById(Integer id) {
-        List<Order> orderItems = new ArrayList<>();
-        Order order = this.orderRepository.findById(id).get();
-        for (int i=0; i<order.getQuantity();i++) {
-            orderItems.add(order);
-        }
-        return orderItems;
+//        return this.orderRepository.getAllBookOrders();
     }
 
 }
