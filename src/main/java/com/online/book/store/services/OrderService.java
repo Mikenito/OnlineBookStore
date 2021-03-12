@@ -2,14 +2,16 @@ package com.online.book.store.services;
 
 import com.online.book.store.domain.Book;
 import com.online.book.store.domain.Order;
+import com.online.book.store.exceptions.BookNotFoundException;
 import com.online.book.store.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class OrderService {
 
     private OrderRepository orderRepository;
@@ -23,18 +25,20 @@ public class OrderService {
     }
 
     public Order saveBookOrder(String ISBN, Integer quantity) {
-        Book bookFound = this.bookService.findBooksByISBN(ISBN);
+        Book bookFound = null;
         Order order = new Order();
+        bookFound = this.bookService.findBooksByISBN(ISBN);
+        if(bookFound == null) {
+            throw new BookNotFoundException();
+        }
         order.setBook(bookFound);
         order.setQuantity(quantity);
         System.out.println(order);
-        Order savedOrder = this.orderRepository.save(order);
-        return savedOrder;
+        return this.orderRepository.save(order);
     }
 
     public List<Order> getAllBookOrders() {
         return (List<Order>) this.orderRepository.findAll();
-//        return this.orderRepository.getAllBookOrders();
     }
 
 }
