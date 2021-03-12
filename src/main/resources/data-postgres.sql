@@ -1,10 +1,11 @@
-insert into "liquibase-demo".public.books(isbn, author, title)
-values ('9783161484100', 'The Horrors', 'Teddy Martingale'),
-       ('9783161484101', 'Faster', 'John Madea'),
-       ('9783161484103', 'RedBox', 'Hilary Ford'),
-       ('9783161484104', 'Many', 'Josh Fix'),
-       ('9783161484105', '50 Laps', 'Gary Champ'),
-       ('9783161484106', 'Top Man', 'Miles Fern'),
-       ('9783161484107', 'Hidden', 'Courtney Mbalula'),
-       ('9783161484108', 'Jump', 'Alex Mota'),
-       ('9783161484109', 'Addict', 'Alfred Zaine');
+insert into "liquibase-demo".public.books(isbn, title, author)
+values ('9783161484100', 'SQL', 'Teddy Martingale'),
+       ('9783161484101', 'Liquibase', 'John Madea'),
+       ('9783161484102', 'Java', 'John Scott'),
+       ('9783161484103', 'Spring Boot', 'Hilary Ford'),
+       ('9783161484104', 'Postman', 'Josh Fix'),
+       ('9783161484105', 'JQuery', 'Gary Champ'),
+       ('9783161484106', 'Web Design', 'Miles Fern'),
+       ('9783161484107', 'Angular', 'Courtney Mbalula'),
+       ('9783161484108', 'Python', 'Alex Mota'),
+       ('9783161484109', 'C# Basics', 'Alfred Zaine');
