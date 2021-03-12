@@ -20,15 +20,25 @@ public class OrderController {
     }
 
     @PostMapping
-    public Order createBookOrder(@RequestBody HashMap<String, String> orders) {
-        String ISBN = orders.get("ISBN");
-        Integer quantity = Integer.parseInt(orders.get("quantity"));
-        return this.orderService.saveBookOrder(ISBN, quantity);
+    public String createBookOrder(@RequestBody List<HashMap<String, String>> orders) {
+        String result = "";
+        for (HashMap<String, String> order : orders) {
+            result += String.format("%s\n", createBookOrder(order));
+        }
+        return result;
+    }
+
+    @PostMapping("/order")
+    private String createBookOrder(@RequestBody HashMap<String, String> orders) {
+        Order order = this.orderService.saveBookOrder(orders.get("ISBN"), Integer.parseInt(orders.get("quantity")));
+        String result = "Book " + order.getBook() + " has been ordered.";
+        return result;
     }
 
     @GetMapping
     public List<Order> getAllBookOrders() {
         return this.orderService.getAllBookOrders();
     }
+
 
 }
