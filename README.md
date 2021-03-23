@@ -27,12 +27,12 @@ A simple online book store
                { "ISBN": "9783161484102", "quantity": "2" }
               ]`
 
-##Authentication
+####Authentication
 * Auth Type: BasicAuth
 * username: user
 * password: pass
 
-###Books
+Books
 
 | ISBN           | title          | author               |
 | -------------- | -------------- | -------------------- |
