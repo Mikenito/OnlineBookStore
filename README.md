@@ -9,24 +9,28 @@ A simple online book store
 ## Application RestAPIs
 
 ###### Main Link
-* [ click here ]()
+* [ home / ](http://bookstore-env.eba-ugvdpymc.us-west-2.elasticbeanstalk.com/)
 
 ###### Get all order using this api
-* Get: [base/api/orders]()
+* Get: [api/orders](http://bookstore-env.eba-ugvdpymc.us-west-2.elasticbeanstalk.com/api/orders)
 
 ###### Create a single order using this RestAPI
-* Post: [base/api/orders/order]()
+* Post: [api/orders/order](http://bookstore-env.eba-ugvdpymc.us-west-2.elasticbeanstalk.com/api/orders/order)
     *   Use JSON format for the request body
     *   e.g. `{ "ISBN": "9783161484107", "quantity": "2" }`
 
 ###### Create multiple orders using this RestAPI
-* Post: [base/api/orders]()
+* Post: [api/orders](http://bookstore-env.eba-ugvdpymc.us-west-2.elasticbeanstalk.com/api/orders)
     *   Use JSON format for the request body
     *   e.g. `[{ "ISBN": "9783161484107", "quantity": "2" }, 
                { "ISBN": "9783161484102", "quantity": "5" },
                { "ISBN": "9783161484102", "quantity": "2" }
               ]`
 
+##Authentication
+* Auth Type: BasicAuth
+* username: user
+* password: pass
 #Books
 | ISBN           | title          | author               |
 | -------------- | -------------- | -------------------- |
