@@ -31,7 +31,9 @@ A simple online book store
 * Auth Type: BasicAuth
 * username: user
 * password: pass
-#Books
+
+###Books
+
 | ISBN           | title          | author               |
 | -------------- | -------------- | -------------------- |
 | 9783161484100  | SQL            | Teddy Martingale     |
