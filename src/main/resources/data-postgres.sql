@@ -1,4 +1,4 @@
-insert into "bookstore".public.books(isbn, title, author)
+insert into "book_store".public.books(isbn, title, author)
 values ('9783161484100', 'SQL', 'Teddy Martingale'),
        ('9783161484101', 'Liquibase', 'John Madea'),
        ('9783161484102', 'Java', 'John Scott'),
